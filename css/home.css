@@ -110,8 +110,8 @@
 }
 
 .card {
-    width: 400px;
-    height: 500px;
+    width: 350px;
+    height: 400px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
     padding: 20px;
     text-align: center;
@@ -137,5 +137,5 @@
     font-size: 0.9rem;
     color: #000000;
     text-align: center;
-    padding: 20px 100px;
+    padding: 20px 30px;
 }
