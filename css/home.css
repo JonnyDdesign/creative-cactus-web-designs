@@ -2,25 +2,37 @@
 .hero {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 20px;
+    align-items: stretch;
+    padding: 0;
+    margin-top: 40px;
 }
 
 .hero-text {
-    max-width: 50%;
+    background-image: url(/assets/images/hero-text-background.webp);
+    width: 100%;
+    min-height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .hero-text h1 {
     font-size: 3rem;
+    padding-left: 20px;
+    margin-right: 50px;
 }
 
 .hero-text p {
     font-size: 1.5rem;
-    margin: 10px 0;
+    margin: 20px 0;
+    margin-right: 50px;
+    padding-left: 20px;
 }
 
 .hero-text button {
     padding: 10px 20px;
+    margin-left: 20px;
+    margin-top: 30px;
     font-size: 1.1rem;
     color: #000000;
     background-color: #E5C2C0;

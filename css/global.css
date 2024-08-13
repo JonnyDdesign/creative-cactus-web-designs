@@ -7,7 +7,7 @@
 body {
     font-family: Arial, sans-serif;
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 1.3;
     color: #FFFFFF;
     background-color: #0C8346;
     margin: 0;
@@ -25,18 +25,19 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
-    max-width: 1200px;
+    width: 100%;
+    max-width: 1800px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
 .logo {
     flex: 0 0 auto;
+    margin-left: 20px;
 }
 
 .logo img {
-    max-width: 300px;
+    max-width: 70%;
     height: auto;
 }
 
@@ -48,7 +49,7 @@ nav {
 
 .nav-links {
     list-style-type: none;
-    margin: 0;
+    margin-right: 20px;
     padding: 0;
     display: flex;
     gap: 20px;
