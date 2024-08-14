@@ -1,4 +1,4 @@
-/* Hero styling section*/
+/* Hero styling section */
 .hero {
     display: flex;
     justify-content: space-between;
@@ -67,6 +67,7 @@
     display: block;
 }
 
+/* Innovative Solutions section */
 .innovative-solutions {
     background-color: #FFFFFF;
 }
@@ -79,7 +80,7 @@
     text-align: center;
     text-decoration: underline;
     padding-top: 50px;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
 }
 
 .solutions-top {
@@ -98,7 +99,8 @@
     font-family: 'Sedan', serif;
     font-size: 1.3rem;
     color: #000000;
-    padding: 30px 250px;
+    padding: 50px 250px;
+    line-height: 1.8;
 }
 
 .solutions-card-container {
@@ -112,14 +114,8 @@
 .card {
     width: 350px;
     height: 400px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
     padding: 20px;
     text-align: center;
-    transition: transform 0.2s;
-}
-
-.card:hover {
-    transform: scale(1.04);
 }
 
 .card img {
@@ -130,12 +126,69 @@
 .card h3 {
     font-size: 1.25rem;
     color: #000000;
+    margin-top: 10px;
     margin-bottom: 10px;
 }
 
 .card p {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    color: #000000;
+    text-align: left;
+    padding: 20px 30px;
+    line-height: 1.5;
+}
+
+/* Portfolio section */
+.portfolio h2 {
+    font-family: 'Patua One', Times, serif;
+    font-size: 2rem;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    text-align: center;
+    text-decoration: underline;
+    padding-top: 50px;
+    padding-bottom: 40px;
+}
+
+.portfolio-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+    padding-bottom: 50px;
+}
+
+.portfolio-card {
+    width: 350px;
+    height: 400px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
+    background-color: #E5C2C0;
+    border-radius: 4px;
+    transition: transform 0.3s;
+}
+
+.portfolio-card:hover {
+    transform: scale(1.05);
+}
+
+.portfolio-card img {
+    width: 250px;
+    height: 170px;
+}
+
+.portfolio-card h3 {
+    font-size: 1.5rem;
+    color: #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.portfolio-card p {
+    font-size: 1rem;
     color: #000000;
     text-align: center;
     padding: 20px 30px;
+    line-height: 1.5;
 }
