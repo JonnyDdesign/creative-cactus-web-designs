@@ -69,7 +69,10 @@
 
 /* Innovative Solutions section */
 .innovative-solutions {
-    background-color: #FFFFFF;
+    background-image: url(/assets/images/solutions-background.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .innovative-solutions h2 {
