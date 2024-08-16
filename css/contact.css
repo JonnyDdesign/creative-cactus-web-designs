@@ -1,0 +1,186 @@
+main {
+    text-align: center;
+}
+
+h1 {
+    display: inline-block;
+    font-family: 'Radley', Georgia, Times, serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    background-color: #0D5D56;
+    padding: 20px 100px;
+    border-radius: 50px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.contact-1, .contact-2 {
+    flex: 1;
+    padding: 20px;
+}
+
+form {
+    background-color: rgba(143, 213, 166, 0.5);
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px rgb(0, 0, 0);
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input, textarea {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 2px solid #000000;
+    background-color: transparent;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-bottom: 2px solid #0D5D56;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #000000;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+select {
+    width: 100%;
+    padding: 10px 5px;
+    border: none;
+    border-bottom: 2px solid #000000;
+    background-color: transparent;
+    font-size: 16px;
+    color: #000000;
+    outline: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23999" d="M2 0L0 2h4z"/></svg>');
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 10px;
+    background-size: 10px;
+    cursor: pointer;
+}
+
+select:focus {
+    border-bottom: 2px solid #0D5D56;
+}
+
+button {
+    width: 70%;
+    background-color: #0D5D56;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    padding: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+    background-color: #8FD5A6;
+    color: #000000;
+}
+
+.contact-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-2 p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.contact-2 a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.contact-2 a:hover {
+    text-decoration: none;
+    color: #000000;
+}
+
+/*.social-icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    margin: 5px 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon.facebook {
+    background-image: url(/assets/images/facebook-svg.svg);
+}
+
+.social-icon.facebook:hover {
+    background-image: url(/assets/images/facebook-svg-hover.svg);
+    transform: scale(1.2);
+}
+
+.social-icon.instagram {
+    background-image: url(/assets/images/instagram-svg.svg);
+}
+
+.social-icon.instagram:hover {
+    background-image: url(/assets/images/instagram-svg-hover.svg);
+    transform: scale(1.2);
+}*/
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .contact-1, .contact-2 {
+        flex: none;
+        padding: 10px;
+        border: none;
+        text-align: center;
+    }
+
+    .contact-1 {
+        border-bottom: 2px solid #ddd;
+    }
+
+    form {
+        max-width: 100%;
+    }
+}

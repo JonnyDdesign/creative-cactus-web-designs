@@ -62,9 +62,10 @@
 }
 
 .hero-image img {
-    max-width: 80%;
+    max-width: 90%;
     height: auto;
     display: block;
+    margin-bottom: 30px;
 }
 
 /* Innovative Solutions section */
@@ -79,7 +80,7 @@
     font-family: 'Patua One', Times, serif;
     font-size: 2rem;
     color: #0C8346;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
     text-align: center;
     text-decoration: underline;
     padding-top: 50px;
@@ -115,8 +116,8 @@
 }
 
 .card {
-    width: 350px;
-    height: 400px;
+    width: 400px;
+    height: 500px;
     padding: 20px;
     text-align: center;
 }
@@ -146,7 +147,7 @@
     font-family: 'Patua One', Times, serif;
     font-size: 2rem;
     color: #FFFFFF;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
     text-align: center;
     text-decoration: underline;
     padding-top: 50px;
@@ -162,13 +163,14 @@
 }
 
 .portfolio-card {
-    width: 350px;
-    height: 400px;
+    width: 400px;
+    height: 500px;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
-    background-color: #E5C2C0;
-    border-radius: 4px;
+    box-shadow: 0 0 20px rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid #FFFFFF;
+    border-radius: 10px 50px 10px 50px;
     transition: transform 0.3s;
 }
 
@@ -177,8 +179,8 @@
 }
 
 .portfolio-card img {
-    width: 250px;
-    height: 170px;
+    width: 100%;
+    height: auto;
 }
 
 .portfolio-card h3 {
@@ -194,4 +196,21 @@
     text-align: center;
     padding: 20px 30px;
     line-height: 1.5;
+}
+
+.portfolio-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0D5D56;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.portfolio-link:hover {
+    background-color: #329F5B;
+    color: #000000;
+    border: 1px solid #000000;
 }
