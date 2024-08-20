@@ -15,6 +15,6 @@ jobs:
 
     - name: Deploy to Hostinger
       run: |
-        ssh -o StrictHostKeyChecking=no u522518288@149.100.151.13 "cd /home/username/public_html && git pull origin master"
+        ssh -v -o StrictHostKeyChecking=no u522518288@149.100.151.13 "cd /home/u522518288/domains/creativecactuswebdesigns.com/public_html && git pull origin master"
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
