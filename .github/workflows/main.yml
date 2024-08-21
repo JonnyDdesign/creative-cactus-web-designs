@@ -6,8 +6,11 @@ on:
       - master
 
 jobs:
-  deploy:
+  check-server:
     runs-on: ubuntu-latest
+    steps:
+      - name: Check server reachability using ping
+        run: ping -c 4 149.100.151.13
 
     steps:
     - name: Checkout code
