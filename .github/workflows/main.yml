@@ -6,33 +6,36 @@ on:
       - master
 
 jobs:
-  check-server:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Check server reachability using ping
         run: ping -c 4 149.100.151.13
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Check server reachability using nc (Netcat)
+        run: |
+          nc -zv 149.100.151.13 65002
 
-    - name: Set up SSH
-      run: |
-        set -x # Enable debug mode to see commands being executed
-        mkdir -p ~/.ssh
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
-        chmod 600 ~/.ssh/id_ed25519
-        ssh-keyscan -H 149.100.151.13 >> ~/.ssh/known_hosts
-        # Debugging
-        ls -la ~/.ssh
-        cat ~/.ssh/id_ed25519 || echo "Failed to read id_ed25519"
-        cat ~/.ssh/known_hosts || echo "Failed to read known_hosts"
-      shell: /usr/bin/bash -e {0}
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Deploy to Hostinger
-      run: |
-        ssh -o StrictHostKeyChecking=no -p 65002 u522518288@149.100.151.13 "cd /home/u522518288/domains/creativecactuswebdesigns.com/public_html && git pull origin master"
+      - name: Set up SSH
+        run: |
+          set -x # Enable debug mode to see commands being executed
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H 149.100.151.13 >> ~/.ssh/known_hosts
+          # Debugging
+          ls -la ~/.ssh
+          cat ~/.ssh/id_ed25519 || echo "Failed to read id_ed25519"
+          cat ~/.ssh/known_hosts || echo "Failed to read known_hosts"
+        shell: /usr/bin/bash -e {0}
 
-    - name: Debug SSH Connection
-      run: |
-        ssh -v -o StrictHostKeyChecking=no -p 65002 u522518288@149.100.151.13 'echo "SSH connection successful"'
+      - name: Deploy to Hostinger
+        run: |
+          ssh -o StrictHostKeyChecking=no -p 65002 u522518288@149.100.151.13 "cd /home/u522518288/domains/creativecactuswebdesigns.com/public_html && git pull origin master"
+
+      - name: Debug SSH Connection
+        run: |
+          ssh -v -o StrictHostKeyChecking=no -p 65002 u522518288@149.100.151.13 'echo "SSH connection successful"'
