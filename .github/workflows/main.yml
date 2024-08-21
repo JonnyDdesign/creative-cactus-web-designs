@@ -13,7 +13,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Add SSH Key
+    - name: Set up SSH
       run: |
         mkdir -p ~/.ssh
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
@@ -23,3 +23,7 @@ jobs:
     - name: Deploy to Hostinger
       run: |
         ssh -o StrictHostKeyChecking=no -p 65002 u522518288@149.100.151.13 "cd /home/u522518288/domains/creativecactuswebdesigns.com/public_html && git pull origin master"
+        
+    - name: Debug SSH Connection
+      run: |
+        ssh -v -o StrictHostKeyChecking=no -p 65002 u522518288@149.100.151.13 'echo "SSH connection successful"'
