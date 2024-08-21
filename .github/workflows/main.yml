@@ -9,9 +9,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Check server reachability using ping
-        run: ping -c 4 149.100.151.13
-
       - name: Check server reachability using nc (Netcat)
         run: |
           nc -zv 149.100.151.13 65002
