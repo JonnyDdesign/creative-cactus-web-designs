@@ -16,13 +16,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Manually add SSH host key
+        run: |
+          echo "149.100.151.13 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDhgZJSTvfoiUUxq+06BdvqpzAGyx/3eUCaTIQLgBKFZ jondesserres@gmail.com" >> ~/.ssh/known_hosts
+
       - name: Set up SSH
         run: |
           set -x
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -v -H 149.100.151.13 >> ~/.ssh/known_hosts
           # Debugging
           ls -la ~/.ssh
           cat ~/.ssh/id_ed25519 || echo "Failed to read id_ed25519"
@@ -31,7 +34,7 @@ jobs:
 
       - name: Test SSH connection
         run: |
-          ssh -v -o StrictHostKeyChecking=no -p 65002 u522518288@149.100.151.13 'echo "SSH connection successful"'
+          ssh -vvv -o StrictHostKeyChecking=no -p 65002 u522518288@149.100.151.13 'echo "SSH connection successful"'
 
       - name: Deploy to Hostinger
         run: |
