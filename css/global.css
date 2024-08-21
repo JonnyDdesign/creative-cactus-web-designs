@@ -143,9 +143,10 @@ nav {
 }
 
 .footer-1 {
-    flex: 3;
+    display: flex;
     margin: 10px;
-    min-width: 300px;
+    align-items: center;
+    gap: 20px;
 }
 
 .footer-2, .footer-3 {
@@ -156,14 +157,16 @@ nav {
 }
 
 .footer-1 img {
-    max-width: 250px;
-    margin-left: 80px;
+    flex: 1;
+    max-width: 20%;
+    height: auto;
+    margin-left: 180px;
 }
 
 .footer-1 p {
+    flex: 1;
     line-height: 1.4;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin: 0px 120px;
     text-align: left;
 }
 
