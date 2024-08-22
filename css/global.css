@@ -137,7 +137,7 @@ nav {
 .footer-container {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
     padding: 0 20px;
     margin-bottom: 20px;
