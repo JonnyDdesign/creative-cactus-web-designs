@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         //Server settings
         $mail->isSMTP();
-        $mail->Host = 'smtp.hostinger.com';
+        $mail->Host = 'smtp.titan.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'info@creativecactuswebdesigns.com';
         $mail->Password = 'Dane1011!';
