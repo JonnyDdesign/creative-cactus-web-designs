@@ -11,20 +11,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = htmlspecialchars(trim($_POST['phone']));
     $subject = htmlspecialchars(trim($_POST['subject']));
     $message = htmlspecialchars(trim($_POST['message']));
-    $recaptcha_secret = '6LckjS0qAAAAANAJTjRXMxnMSNQMKPJXX2SqA3Kd'; // Replace with your reCAPTCHA secret key
-    $recaptcha_response = $_POST['g-recaptcha-response'];
 
     // Validate email
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         die("Invalid email format");
-    }
-
-    // Verify CAPTCHA
-    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$recaptcha_secret&response=$recaptcha_response");
-    $responseKeys = json_decode($response, true);
-
-    if (intval($responseKeys["success"]) !== 1) {
-        die("Please complete the CAPTCHA");
     }
 
     // Set up PHPMailer
@@ -49,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Body    = "Name: $name<br>Email: $email<br>Phone: $phone<br>Subject: $subject<br><br>Message:<br>$message";
 
         $mail->send();
-        echo "Thank you for your message. It has been sent.";
+        echo "Thank you! Your message has been sent.";
     } catch (Exception $e) {
         echo "Sorry, something went wrong. Please try again later. Mailer Error: {$mail->ErrorInfo}";
     }
