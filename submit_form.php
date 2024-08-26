@@ -4,6 +4,17 @@ use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php';
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+$password = getenv('SMTP_PASSWORD');
+if (!$password) {
+    die("SMTP password not set. Please check your environment variable.");
+} else {
+    echo "SMTP password is set.";
+    // You can comment out or remove this line after confirming the password is set
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect and sanitize form data
     $name = htmlspecialchars(trim($_POST['name']));
@@ -25,12 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Host = 'smtp.hostinger.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'info@creativecactuswebdesigns.com';
-        $mail->Password = getenv('SMTP_PASSWORD');
-
-        if (!$mail->Password) {
-            die("SMTP password not set. Please check your environment variable.");
-        }
-
+        $mail->Password = $password;
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 465;
 
@@ -47,8 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->send();
         echo "Thank you! Your message has been sent.";
     } catch (Exception $e) {
-        error_log("Mailer Error: {$mail->ErrorInfo}");
-        echo "Sorry, something went wrong. Please try again later.";
+        echo "Sorry, something went wrong. Please try again later. Mailer Error: {$mail->ErrorInfo}";
     }
 } else {
     echo "Invalid request.";
