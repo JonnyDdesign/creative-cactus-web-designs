@@ -28,11 +28,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         // Load environment variables
         $dotenv = Dotenv::createImmutable(__DIR__);
-        $dotenv->load();
+        $dotenv->safeLoad();
 
         $password = getenv('SMTP_PASSWORD');
         if (!password) {
             die("SMTP password not set. Please check your environment variable.");
+        } else {
+            echo "SMTP password is set: $password";
         }
 
         //Server settings
