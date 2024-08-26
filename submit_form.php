@@ -35,8 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->SMTPAuth = true;
         $mail->Username = 'info@creativecactuswebdesigns.com';
         $mail->Password = getenv('SMTP_PASSWORD');
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        $mail->Port = 465;
 
         //Recipients
         $mail->setFrom('info@creativecactuswebdesigns.com', 'Creative Cactus Web Designs');
