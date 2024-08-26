@@ -6,19 +6,9 @@ error_reporting(E_ALL);
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use Dotenv\Dotenv;
 
 require 'vendor/autoload.php';
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-
-$password = getenv('SMTP_PASSWORD');
-if (!$password) {
-    die("SMTP password not set. Please check your environment variable.");
-} else {
-    echo "SMTP password is set.";
-    // You can comment out or remove this line after confirming the password is set
-}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect and sanitize form data
@@ -36,6 +26,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Set up PHPMailer
     $mail = new PHPMailer(true);
     try {
+        // Load environment variables
+        $dotenv = Dotenv::createImmutable(__DIR__);
+        $dotenv->load();
+
+        $password = getenv('SMTP_PASSWORD');
+        if (!password) {
+            die("SMTP password not set. Please check your environment variable.");
+        }
+
         //Server settings
         $mail->isSMTP();
         $mail->Host = 'smtp.hostinger.com';
