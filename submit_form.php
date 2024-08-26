@@ -2,7 +2,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'vendor/autoload.php'; // Ensure this path is correct
+require 'vendor/autoload.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect and sanitize form data
@@ -26,6 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->SMTPAuth = true;
         $mail->Username = 'info@creativecactuswebdesigns.com';
         $mail->Password = getenv('SMTP_PASSWORD');
+
+        if (!$mail->Password) {
+            die("SMTP password not set. Please check your environment variable.");
+        }
+
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 465;
 
@@ -42,7 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->send();
         echo "Thank you! Your message has been sent.";
     } catch (Exception $e) {
-        echo "Sorry, something went wrong. Please try again later. Mailer Error: {$mail->ErrorInfo}";
+        error_log("Mailer Error: {$mail->ErrorInfo}");
+        echo "Sorry, something went wrong. Please try again later.";
     }
 } else {
     echo "Invalid request.";
