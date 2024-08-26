@@ -1,14 +1,21 @@
 <?php
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use Dotenv\Dotenv;
 
 require 'vendor/autoload.php';
+
+// Load environment variables from .env file
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+// Debug: Print environment variables
+print_r($_ENV);
+die(); // Stop execution after printing to check the output
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect and sanitize form data
@@ -26,23 +33,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Set up PHPMailer
     $mail = new PHPMailer(true);
     try {
-        // Load environment variables
-        $dotenv = Dotenv::createImmutable(__DIR__);
-        $dotenv->safeLoad();
-
-        $password = getenv('SMTP_PASSWORD');
-        if (!password) {
-            die("SMTP password not set. Please check your environment variable.");
-        } else {
-            echo "SMTP password is set: $password";
-        }
-
         //Server settings
         $mail->isSMTP();
         $mail->Host = 'smtp.hostinger.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'info@creativecactuswebdesigns.com';
+
+        // Retrieve password from environment variable
+        $password = getenv('SMTP_PASSWORD');
+        if (!$password) {
+            die("SMTP password not set. Please check your environment variable.");
+        }
         $mail->Password = $password;
+        
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 465;
 
