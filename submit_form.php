@@ -31,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         //Recipients
         $mail->setFrom('info@creativecactuswebdesigns.com', 'Creative Cactus Web Designs');
+        $mail->addAddress('info@creativecactuswebdesigns.com');
         $mail->addReplyTo($email, $name);
 
         // Content
