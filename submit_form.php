@@ -1,17 +1,11 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-use Dotenv\Dotenv;
 
 require 'vendor/autoload.php';
 
-// Load environment variables from .env file
-$dotenv = Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+$mail = new PHPMailer(true);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect and sanitize form data
@@ -26,17 +20,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Invalid email format");
     }
 
-    // Set up PHPMailer
-    $mail = new PHPMailer(true);
     try {
         //Server settings
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
         $mail->isSMTP();
         $mail->Host = 'smtp.titan.email';
         $mail->SMTPAuth = true;
         $mail->Username = 'info@creativecactuswebdesigns.com';
         $mail->Password = getenv('SMTP_PASSWORD');
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        $mail->Port = 465;
 
         //Recipients
         $mail->setFrom('info@creativecactuswebdesigns.com', 'Creative Cactus Web Designs');
@@ -51,7 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->send();
         echo "Thank you! Your message has been sent.";
     } catch (Exception $e) {
-        echo "Sorry, something went wrong. Please try again later. Mailer Error: {$mail->ErrorInfo}";
+        error_log("Mailer Error: " . $mail->ErrorInfo);
+        echo "Sorry, something went wrong. Please try again later.";
     }
 } else {
     echo "Invalid request.";
