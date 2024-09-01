@@ -52,13 +52,10 @@
         <div class="contact-container">
             <div class="contact-1">
                 <h2>Fill out the form below:</h2>
-                <form id="contact-form" action="/submit_form.php" method="post">
+                <form id="contact-form">
                     <input type="text" placeholder="Name" id="name" name="name" required>
-                
                     <input type="email" placeholder="Email" id="email" name="email" required>
-                    
                     <input type="tel" placeholder="Phone Number (Optional)" id="phone" name="phone">
-                    
                     <select id="subject" name="subject" required>
                         <option value="" disabled selected>Select a Subject</option>
                         <option value="general">Website Design</option>
@@ -66,10 +63,9 @@
                         <option value="feedback">Support</option>
                         <option value="other">Other</option>
                     </select>
-                    
                     <textarea id="message" placeholder="Message" name="message" rows="5" required></textarea>
-
                     <button type="submit">SUBMIT</button>
+                    <div id="response-message"></div>
                 </form>
             </div>
             <div class="contact-2">
@@ -120,6 +116,6 @@
             <p>Copyright &copy;2024 | Creative Cactus Web Designs | All Rights Reserved</p>
         </div>
     </footer>
-    
+    <script src="index.js" defer></script>
 </body>
 </html>
