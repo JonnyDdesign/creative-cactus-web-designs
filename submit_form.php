@@ -1,53 +1,62 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-
+// Include the PHPMailer library
 require 'vendor/autoload.php';
 
-$mail = new PHPMailer(true);
+// Load environment variables
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+// Email configuration
+$sender_email = getenv('TITAN_EMAIL');
+$sender_password = getenv('TITAN_PASSWORD');
+$recipient_email = 'info@creativecactuswebdesigns.com';
+$smtp_server = 'smtp.titan.email';
+$smtp_port = 587;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Collect and sanitize form data
-    $name = htmlspecialchars(trim($_POST['name']));
-    $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
-    $phone = htmlspecialchars(trim($_POST['phone']));
-    $subject = htmlspecialchars(trim($_POST['subject']));
-    $message = htmlspecialchars(trim($_POST['message']));
+    // Get form data
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $phone = htmlspecialchars($_POST['phone']);
+    $subject = htmlspecialchars($_POST['subject']);
+    $message = htmlspecialchars($_POST['message']);
 
-    // Validate email
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        die("Invalid email format");
-    }
+    $email_subject = "New Contact Form Submission: $subject";
+    $email_body = "Name: $name\n";
+    $email_body = "Email: $email\n";
+    $email_body = "Phone: $phone\n";
+    $email_body = "Subject: $subject\n";
+    $email_body = "Message: $message\n";
+
+    // Send the email using PHPMailer
+    $mail = new \PHPMailer\PHPMailer\PHPMailer();
 
     try {
-        //Server settings
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        // Configure SMTP settings
         $mail->isSMTP();
-        $mail->Host = 'smtp.titan.email';
+        $mail->Host = $smtp_server;
+        $mail->Port = $smtp_port;
         $mail->SMTPAuth = true;
-        $mail->Username = 'info@creativecactuswebdesigns.com';
-        $mail->Password = getenv('SMTP_PASSWORD');
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        $mail->Port = 465;
+        $mail->Username = $sender_email;
+        $mail->Password = $sender_password;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 
-        //Recipients
-        $mail->setFrom('info@creativecactuswebdesigns.com', 'Creative Cactus Web Designs');
-        $mail->addAddress('info@creativecactuswebdesigns.com');
-        $mail->addReplyTo($email, $name);
+        // Set the email content
+        $mail->setFrom($sender_email, $name);
+        $mail->addAddress($recipient_email);
+        $mail->Subject = $email_subject;
+        $mail->Body = $email_body;
 
-        // Content
-        $mail->isHTML(true);
-        $mail->Subject = "Contact Form Submission: $subject";
-        $mail->Body    = "Name: $name<br>Email: $email<br>Phone: $phone<br>Subject: $subject<br><br>Message:<br>$message";
-
-        $mail->send();
-        echo "Thank you! Your message has been sent.";
+        // Send the email
+        if ($mail->send()) {
+            echo 'Thank you! Your message has been sent successfully.';
+        } else {
+            echo 'There was an error sending your message: ' . $mail->ErrorInfo;
+        }
     } catch (Exception $e) {
-        error_log("Mailer Error: " . $mail->ErrorInfo);
-        echo "Sorry, something went wrong. Please try again later.";
+        echo 'Error sending email: ' . $e->getMessage();
     }
 } else {
-    echo "Invalid request.";
+    echo 'Invalid request method.';
 }
 ?>
