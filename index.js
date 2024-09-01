@@ -1,7 +1,7 @@
 document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the default form submission
 
-    var from = this;
+    var form = this;
     var responseMessage = document.getElementById('response-message');
 
     var formData = new FormData(form); // Create a FormData object from the form
