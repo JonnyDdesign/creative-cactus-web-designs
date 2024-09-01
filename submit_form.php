@@ -8,11 +8,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = htmlspecialchars($_POST['message']);
 
     $to = 'info@creativecactuswebdesigns.com';
+    $subjectLine = "Contact Form Submission $subject";
     $headers = "From: $name <$email>" . "\r\n" .
                "Reply-To: $email" . "\r\n" .
                "X-Mailer: PHP/" . phpversion();
 
-    $mailBody = "Name: $name\nEmail: $email\n\nMessage:\n$message";
+    $mailBody = "Name: $name\nEmail: $email\nPhone: $phone\nSubject: $subject\n\nMessage:\n$message";
 
     if (mail($to, $subject, $mailBody, $headers)) {
         echo 'Thank you! Your message has been sent successfully.';
