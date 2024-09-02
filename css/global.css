@@ -127,6 +127,20 @@ nav {
     background-color: #FFFFFF;
 }
 
+/* Hamburger menu styles */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-icon .hamburger {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+}
+
 /* Footer styling*/
 .footer {
     background-color: #329F5B;
@@ -215,4 +229,25 @@ nav {
 .footer-bottom p {
     color: #FFFFFF;
     margin: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide the nav links by default */
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px; /* Adjust based on header height */
+        right: 0;
+        width: 100%;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show the nav links when active */
+    }
+
+    .menu-icon {
+        display: flex; /* Show the hamburger menu */
+    }
 }
