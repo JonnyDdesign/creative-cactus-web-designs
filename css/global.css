@@ -58,6 +58,7 @@ html {
 
 /* Header styling */
 header {
+    position: relative;
     background-color: #0C8346;
     color: #FFFFFF;
     padding: 10px 0;
@@ -74,6 +75,8 @@ header {
 }
 
 .logo {
+    max-width: 100%;
+    height: auto;
     flex: 0 0 auto;
     margin-left: 20px;
 }
@@ -87,14 +90,48 @@ nav {
     flex: 1;
     display: flex;
     justify-content: flex-end;
+    position: relative;
 }
 
 .nav-links {
     list-style-type: none;
-    margin-right: 30px;
+    margin-right: 0;
     padding: 0;
     display: flex;
     gap: 30px;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%);
+    opacity: 0;
+    z-index: 1000;
+}
+
+.nav-links.hidden {
+    display: none; /* Initially hide for mobile */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    flex-direction: column;
+    background-color: #333;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    transform: translateX(100%);
+    opacity: 0;
+    z-index: 1000;
+}
+
+.nav-links.active {
+    display: flex;
+    transform: translateX(0);
+    opacity: 1;
 }
 
 .nav-links li {
@@ -139,6 +176,39 @@ nav {
     width: 25px;
     height: 3px;
     background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* Close icon styles */
+.close-icon {
+    display: none;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 1001;
+}
+
+.nav-links.active ~ .close-icon {
+    display: flex;
+}
+
+.close-icon .close {
+    width: 30px;
+    height: 8px;
+    background-color: #FFFFFF;
+    transition: all 0.3s ease;
+}
+
+/* Cross icon effect */
+.close-icon .close:first-child {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.close-icon .close:last-child {
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* Footer styling*/
@@ -233,21 +303,86 @@ nav {
 
 /* Responsive styles */
 @media (max-width: 768px) {
+    .header-container {
+        align-items: center;
+        padding: 10px;
+    }
+
+    .logo img {
+        max-width: 50%;
+    }
+
     .nav-links {
-        display: none; /* Hide the nav links by default */
+        display: none;
         flex-direction: column;
-        background-color: #333;
+        background-color: #8FD5A6;
         position: absolute;
-        top: 60px; /* Adjust based on header height */
+        top: 20px;
         right: 0;
-        width: 100%;
+        width: 80%;
+        text-align: center;
+    }
+
+    .nav-links.hidden {
+        display: flex;
     }
 
     .nav-links.active {
-        display: flex; /* Show the nav links when active */
+        display: flex;
+    }
+
+    .nav-links.active ~ .close-icon {
+        top: 15px;
+        right: 15px;
+    }
+
+    .nav-links li {
+        display: block;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .nav-links a {
+        font-size: 1.6rem;
     }
 
     .menu-icon {
-        display: flex; /* Show the hamburger menu */
+        display: flex;
+        z-index: 3;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-1, .footer-2, .footer-3 {
+        flex: 1 1 100%;
+        max-width: none;
+        margin-bottom: 20px;
+    }
+
+    .footer-1 {
+        flex-direction: column;
+    }
+
+    .footer-1 img {
+        max-width: 70%;
+        margin-bottom: 10px;
+    }
+
+    .footer-1 p {
+        margin: 0;
+        padding: 0 20px;
+    }
+
+    .footer-2 ul li, .footer-3 ul li {
+        display: inline-block;
+        margin: 5px 10px;
+    }
+
+    .footer-bottom p {
+        font-size: 12px;
     }
 }

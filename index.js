@@ -1,5 +1,19 @@
-document.querySelector('.menu-icon').addEventListener('click', function() {
-    document.querySelector('.nav-links').classList.toggle('active');
+document.addEventListener("DOMContentLoaded", function() {
+    const menuIcon = document.querySelector('.menu-icon');
+    const closeIcon = document.querySelector('.close-icon');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuIcon.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+        menuIcon.style.display = 'none'; // Hide the hamburger icon
+        closeIcon.style.display = 'flex'; // Show the close icon
+    });
+
+    closeIcon.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+        closeIcon.style.display = 'none'; // Hide the close icon
+        menuIcon.style.display = 'flex'; // Show the hamburger icon
+    });
 });
 
 document.getElementById('contact-form').addEventListener('submit', function(event) {
