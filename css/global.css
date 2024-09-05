@@ -58,7 +58,6 @@ html {
 
 /* Header styling */
 header {
-    position: relative;
     background-color: #0C8346;
     color: #FFFFFF;
     padding: 10px 0;
@@ -217,37 +216,14 @@ nav {
 /* Responsive styles */
 @media (max-width: 768px) {
     .header-container {
+        flex-direction: column;
         align-items: center;
+        justify-content: center;
         padding: 10px;
     }
 
     .logo img {
         max-width: 50%;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: #8FD5A6;
-        position: absolute;
-        top: 20px;
-        right: 0;
-        width: 80%;
-        text-align: center;
-    }
-
-    .nav-links.hidden {
-        display: flex;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        display: block;
-        text-align: center;
-        margin-bottom: 20px;
     }
 
     .nav-links a {
