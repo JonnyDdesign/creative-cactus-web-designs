@@ -270,12 +270,13 @@
 
     .solutions-card-container {
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
     }
 
     .card {
-        width: 100%;
-        margin-bottom: 20px;
+        width: 80%;
+        height: auto;
+        margin-bottom: 10px;
     }
 
     /* Portfolio Section */
