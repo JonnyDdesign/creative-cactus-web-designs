@@ -254,15 +254,18 @@
     }
 
     .hero-image {
-        background-image: url(/assets/images/hero-text-background.webp);
+        background-image: url(/assets/images/hero-text-background-small.webp);
         background-position: center;
         background-repeat: no-repeat;
-        background-size: contain;
+        background-size: cover;
         max-width: 100%;
-        margin-top: 20px;
     }
 
     /* Solutions Section */
+    .innovative-solutions {
+        background-image: url(/assets/images/solutions-background-small.webp);
+    }
+
     .solutions-top p {
         padding: 20px;
         font-size: 1rem;
