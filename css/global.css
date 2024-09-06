@@ -230,6 +230,10 @@ nav {
         font-size: 1.6rem;
     }
 
+    .footer {
+        padding-top: 0;
+    }
+
     .footer-container {
         flex-direction: column;
         align-items: center;
@@ -259,6 +263,14 @@ nav {
     .footer-2 ul li, .footer-3 ul li {
         display: inline-block;
         margin: 5px 10px;
+    }
+
+    .footer-bottom {
+        background-image: url(/assets/images/footer-bottom-background-small.webp);
+        background-size: cover;
+        padding: 10px;
+        border-top: 1px solid #8FD5A6;
+        font-size: 14px;
     }
 
     .footer-bottom p {
