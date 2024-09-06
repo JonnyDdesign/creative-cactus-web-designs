@@ -74,6 +74,7 @@
 
 /* Innovative Solutions section */
 .innovative-solutions {
+    background-color: #FFFFFF;
     background-image: url(/assets/images/solutions-background.webp);
     background-position: center;
     background-repeat: no-repeat;
@@ -220,7 +221,7 @@
     border: 1px solid #000000;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 460px) {
     .hero {
         flex-direction: column;
         align-items: center;

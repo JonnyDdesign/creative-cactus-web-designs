@@ -46,7 +46,7 @@ p {
     margin-bottom: 8px;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 460px) {
     .services {
         flex-direction: column;
         align-items: center;

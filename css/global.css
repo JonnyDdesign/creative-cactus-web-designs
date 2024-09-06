@@ -214,20 +214,41 @@ nav {
 }
 
 /* Responsive styles */
-@media (max-width: 768px) {
+@media (max-width: 460px) {
     .header-container {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 10px;
+        padding: 0 5px 10px 5px;
+    }
+
+    .logo {
+        margin: 0;
+        text-align: center;
     }
 
     .logo img {
-        max-width: 50%;
+        max-width: 60%;
+    }
+
+    nav {
+        padding-right: 0;
+        margin-top: 10px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 5px;
+    }
+
+    .nav-links li {
+        padding: 5px;
     }
 
     .nav-links a {
-        font-size: 1.6rem;
+        font-size: 1.3rem;
     }
 
     .footer {
