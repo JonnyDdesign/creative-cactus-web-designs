@@ -167,6 +167,8 @@ button:hover {
     .contact-container {
         flex-direction: column;
         height: auto;
+        padding: 20px;
+        gap: 20px;
     }
 
     .contact-1, .contact-2 {
@@ -177,7 +179,12 @@ button:hover {
     }
 
     .contact-1 {
-        border-bottom: 2px solid #ddd;
+        border-bottom: 2px solid #8FD5A6;
+        padding: 10px 30px 60px 30px;
+    }
+
+    .contact-2 p {
+        font-size: 1rem;
     }
 
     form {
