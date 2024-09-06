@@ -45,3 +45,45 @@ p {
     margin-left: 40px;
     margin-bottom: 8px;
 }
+
+@media screen and (max-width: 768px) {
+    .services {
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 40px 70px 40px;
+    }
+
+    .services-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .services-image {
+        margin: 0;
+        width: 50%;
+    }
+
+    .services-text {
+        width: 100%;
+    }
+
+    .services-text h2 {
+        font-size: 2.3rem;
+    }
+
+    .services-1 img {
+        order: 2;
+    }
+
+    .services-1 .services-text {
+        order: 1;
+    }
+
+    .services-3 img {
+        order: 2;
+    }
+
+    .services-3 .services-text {
+        order: 1;
+    }
+}
