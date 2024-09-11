@@ -3,8 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    padding: 0;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .hero-text {
@@ -18,9 +17,9 @@
 
 .hero-text h1 {
     font-family: 'Radley', Georgia, Times, serif;
-    font-size: 3rem;
-    padding-left: 80px;
-    margin-right: 70px;
+    font-size: 4rem;
+    padding-left: 100px;
+    margin-right: 300px;
 }
 
 .hero-text a {
@@ -30,22 +29,22 @@
 .italic {
     font-family: 'Radley', serif;
     font-style: italic;
-    font-size: 3.2rem;
+    font-size: 4.5rem;
 }
 
 .hero-text p {
     font-family: 'Sedan', serif;
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin: 20px 0;
-    margin-right: 50px;
-    padding-left: 80px;
+    margin-right: 250px;
+    padding-left: 100px;
 }
 
 .hero-text button {
     padding: 10px 15px;
-    margin-left: 80px;
+    margin-left: 100px;
     margin-top: 30px;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     color: #000000;
     background-color: #E5C2C0;
     border: none;
@@ -69,7 +68,7 @@
     max-width: 90%;
     height: auto;
     display: block;
-    margin-bottom: 30px;
+    margin-bottom: 80px;
 }
 
 /* Innovative Solutions section */
@@ -83,7 +82,7 @@
 
 .innovative-solutions h2 {
     font-family: 'Patua One', Times, serif;
-    font-size: 2rem;
+    font-size: 3rem;
     color: #0C8346;
     letter-spacing: 2.5px;
     text-align: center;
@@ -100,13 +99,13 @@
 }
 
 .solutions-top img {
-    width: 60px;
-    height: 60px;
+    width: 90px;
+    height: 90px;
 }
 
 .solutions-top p {
     font-family: 'Sedan', serif;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: #000000;
     padding: 50px 250px;
     line-height: 1.8;
@@ -117,7 +116,7 @@
     justify-content: space-around;
     align-items: center;
     margin: 20px;
-    padding-bottom: 50px;
+    padding-bottom: 100px;
 }
 
 .card {
@@ -128,19 +127,19 @@
 }
 
 .card img {
-    width: 60px;
-    height: 60px;
+    width: 90px;
+    height: 90px;
 }
 
 .card h3 {
-    font-size: 1.25rem;
+    font-size: 1.6rem;
     color: #000000;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
 .card p {
-    font-size: 1rem;
+    font-size: 1.3rem;
     color: #000000;
     text-align: left;
     padding: 20px 30px;
@@ -150,7 +149,7 @@
 /* Portfolio section */
 .portfolio h2 {
     font-family: 'Patua One', Times, serif;
-    font-size: 2rem;
+    font-size: 3rem;
     color: #FFFFFF;
     letter-spacing: 2.5px;
     text-align: center;
@@ -168,8 +167,8 @@
 }
 
 .portfolio-card {
-    width: 400px;
-    height: 500px;
+    width: 500px;
+    height: 600px;
     padding: 20px;
     text-align: center;
     box-shadow: 0 0 20px rgb(0, 0, 0);
@@ -184,23 +183,23 @@
 }
 
 .portfolio-card img {
-    width: 100%;
+    width: 90%;
     height: auto;
 }
 
 .portfolio-card h3 {
     font-family: 'Radley', Georgia, Times, serif;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: #000000;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
 .portfolio-card p {
-    font-size: 1rem;
+    font-size: 1.4rem;
     color: #000000;
     text-align: center;
-    padding: 20px 30px;
+    padding: 30px;
     line-height: 1.5;
 }
 
@@ -208,11 +207,11 @@
     display: inline-block;
     padding: 10px 20px;
     background-color: #0D5D56;
-    color: white;
+    color: #FFFFFF;
     text-align: center;
     text-decoration: none;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 8px;
+    font-size: 1.4rem;
 }
 
 .portfolio-link:hover {
