@@ -307,6 +307,13 @@
     }
 }
 
+@media (max-width: 1400px) {
+    .portfolio-card {
+        width: 380px;
+        height: 480px;
+    }
+}
+
 @media (max-width: 1350px) {
     .hero-text h1 {
         font-size: 3rem;
@@ -340,6 +347,25 @@
         font-size: 2.5rem;
         letter-spacing: 2.3px;
     }
+}
 
+@media (max-width: 1260px) {
+    .portfolio-card {
+        width: 320px;
+        height: 410px;
+    }
 
+    .portfolio-card img {
+        width: 60%;
+    }
+
+    .portfolio-card h3 {
+        font-size: 1.6rem;
+    }
+
+    .portfolio-card p {
+        font-size: 1.2rem;
+        padding: 10px;
+        line-height: 1.3;
+    }
 }
