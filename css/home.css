@@ -624,8 +624,10 @@
     }
 
     .innovative-solutions {
-        background-image: none;
-        padding-bottom: 30px;
+        background-image: url(/assets/images/solutions-background-small.webp);
+        background-size: contain;
+        background-position: bottom;
+        padding-bottom: 40px;
     }
 
     .innovative-solutions h2 {
