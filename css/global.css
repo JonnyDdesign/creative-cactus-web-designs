@@ -399,3 +399,24 @@ nav {
         font-size: 12px;
     }
 }
+
+@media (max-width: 470px) {
+    .logo img {
+        max-width: 50%;
+    }
+
+    nav {
+        justify-content: space-around;
+        margin: 0;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .nav-links li {
+        padding: 0 5px;
+    }
+}
