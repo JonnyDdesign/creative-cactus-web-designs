@@ -378,10 +378,11 @@ nav {
 
     .footer-container {
         flex-direction: column;
+        padding: 0;
     }
 
     .footer-1 {
-        flex: 1;
+        width: 100%;
         gap: 10px;
     }
 
@@ -396,5 +397,6 @@ nav {
     .footer-bottom {
         background-image: url(/assets/images/footer-bottom-background-small.webp);
         background-size: cover;
+        font-size: 12px;
     }
 }
