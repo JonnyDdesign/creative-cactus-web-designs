@@ -141,6 +141,38 @@
     color: #FFFFFF;
 }
 
+@media (max-width: 1650px) {
+    .image-text-wrapper {
+        flex-direction: column;
+    }
+
+    .image-wrapper::before {
+        left: 15%;
+        width: 60%;
+    }
+
+    .company-image {
+        width: 60%;
+    }
+
+    .image-wrapper::after {
+        left: 25%;
+        width: 60%;
+    }
+
+    .company-text {
+        width: 75%;
+    }
+
+    .company-text h1 {
+        padding-top: 20px;
+    }
+
+    .company-text p {
+        padding: 10px 0;
+    }
+}
+
 @media (max-width: 460px) {
     .about {
         flex-direction: column;
