@@ -173,6 +173,55 @@
     }
 }
 
+@media (max-width: 1400px) {
+    .image-wrapper::before {
+        left: 20%;
+        width: 50%;
+    }
+
+    .company-image {
+        width: 50%;
+    }
+
+    .image-wrapper::after {
+        left: 30%;
+        width: 50%;
+    }
+
+    .company-text {
+        width: 80%;
+    }
+
+    .company-text h1 {
+        font-size: 4rem;
+    }
+
+    .company-text p {
+        font-size: 1.7rem;
+    }
+
+    .about-cards h2 {
+        font-size: 3.2rem;
+    }
+
+    .about-cards p {
+        font-size: 1.7rem;
+    }
+
+    .card h3 {
+        font-size: 1.8rem;
+    }
+
+    .card p {
+        font-size: 1.7rem;
+        padding: 20px 40px;
+    }
+
+    .cta-button {
+        font-size: 1.8rem;
+    }
+}
+
 @media (max-width: 460px) {
     .about {
         flex-direction: column;
