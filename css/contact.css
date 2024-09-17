@@ -5,13 +5,13 @@ main {
 h1 {
     display: inline-block;
     font-family: 'Radley', Georgia, Times, serif;
-    font-size: 3rem;
+    font-size: 3.5rem;
     padding: 20px 100px;
 }
 
 h2 {
     font-family: 'Radley', Georgia, Times, serif;
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 30px;
 }
 
@@ -21,15 +21,18 @@ h2 {
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
-    justify-content: space-between;
+    gap: 30px;
     align-items: center;
+    justify-content: space-evenly;
     padding: 40px 230px;
     box-sizing: border-box;
 }
 
-.contact-1, .contact-2 {
-    flex: 1;
-    padding: 20px;
+.contact-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 form {
@@ -63,7 +66,7 @@ input, textarea, select {
 }
 
 input:focus, textarea:focus {
-    border-bottom: 2px solid #0D5D56;
+    border-bottom: 2px solid #8FD5A6;
 }
 
 input::placeholder, textarea::placeholder {
@@ -82,7 +85,6 @@ select {
     color: #000000;
     outline: none;
     appearance: none;
-    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23999" d="M2 0L0 2h4z"/></svg>');
     background-repeat: no-repeat;
     background-position-x: 100%;
     background-position-y: 10px;
@@ -91,11 +93,11 @@ select {
 }
 
 select:focus {
-    border-bottom: 2px solid #0D5D56;
+    border-bottom: 2px solid #8FD5A6;
 }
 
 button {
-    width: 70%;
+    width: 40%;
     background-color: #0D5D56;
     color: white;
     border: none;
@@ -120,7 +122,7 @@ button:hover {
 }
 
 .contact-2 p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-bottom: 20px;
 }
 
@@ -163,7 +165,93 @@ button:hover {
 }*/
 
 /* Responsive Design */
+@media (max-width: 1750px) {
+    .contact-container {
+        background-image: url(/assets/images/contact-us-background-medium.webp);
+    }
+}
+
+@media (max-width: 1550px) {
+    .contact-container {
+        background-image: url(/assets/images/contact-us-background-small.webp);
+    }
+}
+
+@media (max-width: 1350px) {
+    .contact-container {
+        background-size: contain;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .contact-2 p {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+
+    button {
+        width: 35%;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 1150px) {
+    .contact-container {
+        flex-direction: column;
+        background-image: url(/assets/images/contact-us-background-column.webp);
+        background-size: cover;
+        padding: 0;
+    }
+}
+
+@media (max-width: 1040px) {
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    .contact-2 p {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    button {
+        width: 30%;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 790px) {
+    h1 {
+        font-size: 2.5rem;
+        padding: 30px;
+    }
+
+    form {
+        max-width: 85%;
+    }
+}
+
 @media (max-width: 460px) {
+    h1 {
+        font-size: 2rem;
+        padding-top: 20px;
+        padding-bottom: 0;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
     .contact-container {
         flex-direction: column;
         height: auto;
@@ -171,23 +259,20 @@ button:hover {
         gap: 20px;
     }
 
-    .contact-1, .contact-2 {
-        flex: none;
-        padding: 10px;
-        border: none;
-        text-align: center;
+    form {
+        max-width: 100%;
+    }
+
+    button {
+        width: 25%;
     }
 
     .contact-1 {
         border-bottom: 2px solid #8FD5A6;
-        padding: 10px 30px 60px 30px;
+        padding: 10px 10px 60px 10px;
     }
 
     .contact-2 p {
         font-size: 1rem;
-    }
-
-    form {
-        max-width: 100%;
     }
 }
