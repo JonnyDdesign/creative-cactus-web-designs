@@ -379,7 +379,18 @@
     }
 
     .cards-wrapper {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         gap: 15px;
+    }
+
+    .card {
+        width: 90%;
+    }
+
+    .card img {
+        width: 10%;
     }
 
     .card h3 {
@@ -392,7 +403,8 @@
     }
 
     .cta-button {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
+        margin-top: 40px;
     }
 
     .about-cards {
@@ -400,59 +412,61 @@
     }
 }
 
-@media (max-width: 460px) {
+@media (max-width: 700px) {
     .about {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 20px;
-        padding: 20px 20px 30px 20px;
+        padding: 30px 20px 50px 20px;
     }
 
-    .image-text-wrapper {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .image-wrapper {
-        width: 80%;
-        margin: 10px auto 50px auto;
+    .image-wrapper::before {
+        top: 22%;
+        left: 37%;
+        width: 25%;
+        height: 60%;
     }
 
     .company-image {
-        display: block;
-        width: 80%;
-        margin: 20px auto;
+        width: 25%;
     }
 
-    .image-wrapper::before,
     .image-wrapper::after {
-        width: 70%;
+        top: 20%;
+        left: 39%;
+        width: 25%;
+        height: 60%;
     }
-    
-    /* First Rectangle
+}
+
+@media (max-width: 470px) {
+    .image-text-wrapper {
+        gap: 10px;
+        width: 90%;
+    }
+
     .image-wrapper::before {
-        top: 20px;
-        left: 380px;
-        width: 30%;
+        top: 20%;
+        left: 28%;
+        width: 40%;
         height: 60%;
     }
-    
-    Second Rectangle
+
+    .company-image {
+        width: 40%;
+    }
+
     .image-wrapper::after {
-        top: 100px;
-        left: 280px;
-        width: 30%;
+        top: 20%;
+        left: 33%;
+        width: 40%;
         height: 60%;
-    }*/
+    }
 
     .company-text h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
-    .company-text {
-        width: 100%;
-        text-align: left;
-        padding: 0 20px;
+    .company-text p {
+        font-size: 1rem;
+        padding: 0;
     }
 
     .about-cards {
@@ -460,27 +474,30 @@
     }
 
     .about-cards h2 {
-        font-size: 2rem;
+        font-size: 1.7rem;
     }
 
     .about-cards p {
+        font-size: 1rem;
         padding: 20px;
-        text-align: left;
     }
 
     .cards-wrapper {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
+        gap: 10px;
     }
 
     .card {
-        width: auto;
         padding: 0;
+    }
+
+    .card h3 {
+        font-size: 1.3rem;
+        padding: 10px 0;
     }
 
     .cta-button {
         font-size: 1rem;
+        font-weight: bold;
         margin: 30px;
     }
 }
