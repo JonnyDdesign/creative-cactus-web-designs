@@ -65,10 +65,9 @@
 }
 
 .hero-image img {
-    max-width: 90%;
-    height: auto;
-    display: block;
-    margin-bottom: 80px;
+    width: 830px;
+    height: 580px;
+    margin-bottom: 60px;
 }
 
 /* Innovative Solutions section */
@@ -238,6 +237,11 @@
         margin-right: 150px;
     }
 
+    .hero-image img {
+        width: 800px;
+        height: 550px;
+    }
+
     .portfolio-card {
         width: 440px;
     }
@@ -262,6 +266,11 @@
         margin-right: 100px;
     }
 
+    .hero-image img {
+        width: 730px;
+        height: 500px;
+    }
+
     .innovative-solutions {
         background-image: url(/assets/images/solutions-background-medium.webp);
         background-size: contain;
@@ -282,6 +291,11 @@
     .hero-text p {
         font-size: 1.7rem;
         margin-right: 60px;
+    }
+
+    .hero-image img {
+        width: 680px;
+        height: 460px;
     }
 
     .portfolio-card {
@@ -334,8 +348,9 @@
         font-size: 1.4rem;
     }
 
-    .hero-image {
-        max-width: 40%;
+    .hero-image img {
+        width: 590px;
+        height: 410px;
     }
 
     .innovative-solutions h2 {
@@ -375,6 +390,11 @@
         font-size: 1.3rem;
         margin-top: 10px;
         margin-left: 50px;
+    }
+
+    .hero-image img {
+        width: 550px;
+        height: 410px;
     }
 
     .portfolio-container {
@@ -417,6 +437,11 @@
 
     .hero-text button {
         font-size: 1.2rem;
+    }
+
+    .hero-image img {
+        width: 450px;
+        height: 330px;
     }
 
     .innovative-solutions h2 {
@@ -475,6 +500,13 @@
     }
 }
 
+@media (max-width: 960px) {
+    .hero-image img {
+        width: 330px;
+        height: 270px;
+    }
+}
+
 @media (max-width: 880px) {
     .hero-text h1 {
         font-size: 2.2rem;
@@ -491,6 +523,11 @@
     .hero-text button {
         font-size: 1.1rem;
         margin-top: 0;
+    }
+
+    .hero-image img {
+        width: 300px;
+        height: 240px;
     }
 }
 
@@ -527,12 +564,12 @@
 
     .hero-image {
         max-width: none;
-        margin-top: 50px;
     }
 
     .hero-image img {
-        width: 60%;
-        margin-bottom: 20px;
+        width: 280px;
+        height: 220px;
+        margin: 50px 0;
     }
 
     .innovative-solutions h2 {
@@ -619,8 +656,8 @@
     }
 
     .hero-image img {
-        width: 50%;
-        margin-bottom: 20px;
+        width: 250px;
+        height: 200px;
     }
 
     .innovative-solutions {
