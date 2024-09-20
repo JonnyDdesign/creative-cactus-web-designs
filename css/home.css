@@ -177,6 +177,10 @@
     border: 1px solid #FFFFFF;
     border-radius: 10px 50px 10px 50px;
     transition: transform 0.3s;
+    background-image: url(/assets/images/portfolio-card-background.webp);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: auto;
 }
 
 .portfolio-card:hover {
