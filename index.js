@@ -12,19 +12,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
             xhr.onload = function() {
                 if (xhr.status === 200) {
-                    // Hide the form and show the response message
-                    form.style.display = 'none';
-                    responseMessage.innerText = 'Thank you! Your message has been sent.';
-                    responseMessage.style.color = 'white';
+                    var response = JSON.parse(xhr.responseText);
+
+                    if (response.status === 'success') {
+                        form.style.display = 'none';
+                        responseMessage.innerText = response.message;
+                        responseMessage.style.color = 'white';
+                    } else {
+                        responseMessage.innerText = response.message;
+                        responseMessage.style.color = 'red';
+                    }
                 } else {
-                    // Show error message
                     form.style.display = 'none';
-                    responseMessage.innerText = 'Sorry, something went wrong. Please try again later.';
+                    responseMessage.innerText = 'Sorry, something went wrong.Please try again later.';
                     responseMessage.style.color = 'red';
                 }
-                responseMessage.style.display = 'block'; // Make the response message visible
+                responseMessage.style.display = 'block';
             };
-
             xhr.send(formData); // Send the FormData object
         });
     } else {
