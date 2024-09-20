@@ -11,19 +11,27 @@ document.addEventListener('DOMContentLoaded', function () {
             xhr.open('POST', '/submit_form.php', true); // Open a new POST request
 
             xhr.onload = function() {
-                if (xhr.status === 200) {
-                    var response = JSON.parse(xhr.responseText);
+                console.log(xhr.responseText); //Log response to see if PHP is sending data
 
-                    if (response.status === 'success') {
-                        form.style.display = 'none';
-                        responseMessage.innerText = response.message;
-                        responseMessage.style.color = 'white';
-                    } else {
-                        responseMessage.innerText = response.message;
+                if (xhr.status === 200) {
+                    try {
+                        var response = JSON.parse(xhr.responseText);
+                        console.log(response); // Log parsed response
+
+                        if (response.status === 'success') {
+                            form.style.display = 'none';
+                            responseMessage.innerText = response.message;
+                            responseMessage.style.color = 'white';
+                        } else {
+                            responseMessage.innerText = response.message;
+                            responseMessage.style.color = 'red';
+                        }
+                    } catch (e) {
+                        console.error('Error parsing JSON:', e);
+                        responseMessage.innerText = 'Error processing the response. Please try again.';
                         responseMessage.style.color = 'red';
                     }
                 } else {
-                    form.style.display = 'none';
                     responseMessage.innerText = 'Sorry, something went wrong.Please try again later.';
                     responseMessage.style.color = 'red';
                 }
