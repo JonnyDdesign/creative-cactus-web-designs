@@ -8,36 +8,22 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    steps:
-      - name: Check server reachability using nc (Netcat)
-        run: |
-          nc -zv 149.100.151.13 65002
 
+    steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Create .ssh directory and add SSH host key
-        run: |
-          mkdir -p ~/.ssh
-          echo "149.100.151.13 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDhgZJSTvfoiUUxq+06BdvqpzAGyx/3eUCaTIQLgBKFZ jondesserres@gmail.com" >> ~/.ssh/known_hosts
-        shell: /usr/bin/bash -e {0}
-
       - name: Set up SSH
         run: |
-          set -x
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          # Debugging
-          ls -la ~/.ssh
-          cat ~/.ssh/id_ed25519 || echo "Failed to read id_ed25519"
-          cat ~/.ssh/known_hosts || echo "Failed to read known_hosts"
-        shell: /usr/bin/bash -e {0}
+          ssh-keyscan -p 65002 145.223.106.133 >> ~/.ssh/known_hosts
 
       - name: Test SSH connection
         run: |
-          ssh -vvv -o StrictHostKeyChecking=no -p 65002 u522518288@149.100.151.13 'echo "SSH connection successful"'
+          ssh -o StrictHostKeyChecking=no -p 65002 u522518288@145.223.106.133 'echo "SSH connection successful"'
 
       - name: Deploy to Hostinger
         run: |
-          ssh -o StrictHostKeyChecking=no -p 65002 u522518288@149.100.151.13 "cd /home/u522518288/domains/creativecactuswebdesigns.com/public_html && git pull origin master"
+          ssh -o StrictHostKeyChecking=no -p 65002 u522518288@145.223.106.133 "cd /home/u522518288/domains/creativecactuswebdesigns.com/public_html && git pull origin master"
