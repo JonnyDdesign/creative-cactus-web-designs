@@ -147,17 +147,17 @@
     }
 
     .image-wrapper::before {
-        left: 20%;
-        width: 50%;
+        left: 25%;
+        width: 45%;
     }
 
     .company-image {
-        width: 50%;
+        width: 40%;
     }
 
     .image-wrapper::after {
         left: 30%;
-        width: 50%;
+        width: 45%;
     }
 
     .company-text {
