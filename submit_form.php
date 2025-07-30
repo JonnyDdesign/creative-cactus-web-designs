@@ -3,15 +3,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Honeypot trap field (invisible to humans)
     if (!empty($_POST['website'])) {
-        // A bot filled in the honeypot field
         echo json_encode(['status' => 'error', 'message' => 'Bot detected.']);
         exit;
     }
 
     // Load secret from .env file
     $dotenv = parse_ini_file(__DIR__ . '/.env');
+    if (!$dotenv || !isset($dotenv['RECAPTCHA_SECRET_KEY'])) {
+        echo json_encode(['status' => 'error', 'message' => 'Server configuration error.']);
+        exit;
+    }
     $recaptcha_secret = $dotenv['RECAPTCHA_SECRET_KEY'];
-    $recaptcha_response = $_POST['g-recaptcha-response'];
+    $recaptcha_response = $_POST['g-recaptcha-response'] ?? '';
 
     if (empty($recaptcha_response)) {
         echo json_encode(['status' => 'error', 'message' => 'reCAPTCHA failed.']);
@@ -22,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $captcha_success = json_decode($verify);
 
     if (!$verify || !$captcha_success || !$captcha_success->success) {
+        error_log("reCAPTCHA failed: " . $verify);
         echo json_encode(['status' => 'error', 'message' => 'reCAPTCHA verification failed.']);
         exit;
     }
