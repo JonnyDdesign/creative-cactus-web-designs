@@ -8,8 +8,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    // Google reCAPTCHA verification
-    $recaptcha_secret = '6Lf6vZMrAAAAAO45pEn8fOmF-cu4j155qYqH20az';
+    // Load secret from .env file
+    $dotenv = parse_ini_file(__DIR__ . '/.env');
+    $recaptcha_secret = $dotenv['RECAPTCHA_SECRET_KEY'];
     $recaptcha_response = $_POST['g-recaptcha-response'];
 
     if (empty($recaptcha_response)) {
