@@ -53,10 +53,14 @@
         <div class="contact-container">
             <div class="contact-1">
                 <h2>Fill out the form below:</h2>
-                <form id="contact-form">
+                <form id="contact-form" method="POST" action="submit_form.php">
+                    <!-- Honeypot field (hidden from real users) -->
+                    <input type="text" name="website" style="display: none;" autocomplete="off">
+
                     <input type="text" placeholder="Name" id="name" name="name" required>
                     <input type="email" placeholder="Email" id="email" name="email" required>
                     <input type="tel" placeholder="Phone Number (Optional)" id="phone" name="phone">
+
                     <select id="subject" name="subject" required>
                         <option value="" disabled selected>Select a Subject</option>
                         <option value="general">Website Design</option>
@@ -64,11 +68,17 @@
                         <option value="feedback">Support</option>
                         <option value="other">Other</option>
                     </select>
+
                     <textarea id="message" placeholder="Message" name="message" rows="5" required></textarea>
+
+                    <!-- Google reCAPTCHA widget -->
+                    <div class="g-recaptcha" data-sitekey="6Lf6vZMrAAAAACWQWHeZFIN0zugtZ7duNzmdLHo9"></div>
+
                     <button type="submit">SUBMIT</button>
                     <div id="response-message"></div>
                 </form>
             </div>
+
             <div class="contact-2">
                 <h2>Other ways to reach us:</h2>
                 <p>Email: <a href="mailto:info@creativecactuswebdesigns.com">info@creativecactuswebdesigns.com</a></p>
@@ -117,6 +127,9 @@
             <p>Copyright &copy;2024 | Creative Cactus Web Designs | All Rights Reserved</p>
         </div>
     </footer>
+    <!-- Load reCAPTCHA script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
     <script src="index.js" defer></script>
 </body>
 </html>
