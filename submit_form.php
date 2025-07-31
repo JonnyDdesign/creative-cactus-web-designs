@@ -1,4 +1,6 @@
 <?php
+
+/*
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -94,4 +96,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo json_encode(['status' => 'error', 'message' => 'Sorry, something went wrong. Please try again later.']);
     }
 }
+*/
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+echo "Starting test...\n";
+
+// Check if .env exists
+$dotenv_path = __DIR__ . '/.env';
+if (!file_exists($dotenv_path)) {
+    echo "ERROR: .env file is missing\n";
+    exit;
+}
+
+$dotenv = parse_ini_file($dotenv_path);
+if ($dotenv === false) {
+    echo "ERROR: .env file could not be parsed\n";
+    exit;
+}
+
+if (!isset($dotenv['RECAPTCHA_SECRET_KEY'])) {
+    echo "ERROR: RECAPTCHA_SECRET_KEY missing in .env file\n";
+    exit;
+}
+
+echo "reCAPTCHA key loaded successfully: " . substr($dotenv['RECAPTCHA_SECRET_KEY'], 0, 5) . "...\n";
+
 ?>
