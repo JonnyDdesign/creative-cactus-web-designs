@@ -110,10 +110,12 @@ if (!file_exists($dotenv_path)) {
     exit;
 }
 
-$dotenv = parse_ini_file($dotenv_path);
-if ($dotenv === false) {
-    echo "ERROR: .env file could not be parsed\n";
-    exit;
+$dotenv = [];
+$lines = file($dotenv_path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+foreach ($lines as $line) {
+    if (strpos(trim($line), '#') === 0 || !strpos($line, '=')) continue;
+    list($key, $value) = explode('=', $line, 2);
+    $dotenv[trim($key)] = trim($value);
 }
 
 if (!isset($dotenv['RECAPTCHA_SECRET_KEY'])) {
