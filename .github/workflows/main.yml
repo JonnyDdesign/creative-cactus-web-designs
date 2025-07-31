@@ -22,8 +22,14 @@ jobs:
 
       - name: Test SSH connection
         run: |
-          ssh -o StrictHostKeyChecking=no -p 65002 u522518288@145.223.106.133 'echo "SSH connection successful"'
+          ssh -o StrictHostKeyChecking=no -p 65002 ${{ secrets.HOSTINGER_USER }}@${{secrets.HOSTINGER_HOST }} 'echo "SSH connection successful"'
+
+      - name: Create .env file on server
+        run: |
+          ssh -o StrictHostKeyChecking=no -p 65002 ${{ secrets.HOSTINGER_USER }}@${{ secrets.HOSTINGER_HOST }} << EOF
+          echo "RECAPTCHA_SECRET_KEY =\"${{ secrets.RECAPTCHA_SECRET_KEY }}\"" > ~/deploy/.env
+          mv ~/deploy/.env /home/u522518288/domains/creativecactuswebdesigns.com/public_html/.env
 
       - name: Deploy to Hostinger
         run: |
-          ssh -o StrictHostKeyChecking=no -p 65002 u522518288@145.223.106.133 "cd /home/u522518288/domains/creativecactuswebdesigns.com/public_html && git pull origin master"
+          ssh -o StrictHostKeyChecking=no -p 65002 ${{ secrets.HOSTINGER_USER }}@${{secrets.HOSTINGER_HOST }} "cd /home/u522518288/domains/creativecactuswebdesigns.com/public_html && git pull origin master"
