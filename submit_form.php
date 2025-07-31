@@ -33,9 +33,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $verify = @file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$recaptcha_secret}&response={$recaptcha_response}");
+    
+    if (!$verify) {
+        echo json_encode(['status' => 'error', 'message' => 'Server error: could not reach reCAPTCHA service.'];
+        exit;)
+    }
     $captcha_success = json_decode($verify);
 
-    if (!$verify || !$captcha_success || !$captcha_success->success) {
+    if (!$captcha_success || !$captcha_success->success) {
         error_log("reCAPTCHA failed: " . $verify);
         echo json_encode(['status' => 'error', 'message' => 'reCAPTCHA verification failed.']);
         exit;
