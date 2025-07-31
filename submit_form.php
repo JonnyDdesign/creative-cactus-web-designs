@@ -110,7 +110,7 @@ if (!file_exists($dotenv_path)) {
     exit;
 }
 
-$dotenv = parse_ini_file($dotenv_path);
+$dotenv = parse_ini_file(__DIR__ . '/.env');
 
 if (!$dotenv) {
     echo "ERROR: Could not parse .env file\n";
