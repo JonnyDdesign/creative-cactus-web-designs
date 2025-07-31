@@ -103,28 +103,23 @@ error_reporting(E_ALL);
 
 echo "Starting test...\n";
 
-// Check if .env exists
-$dotenv_path = __DIR__ . '/./.env';
-
-echo realpath(dirname($dotenv_path)) . "\n";
+$dotenv_path = __DIR__ . '/.env';
 
 if (!file_exists($dotenv_path)) {
     echo "ERROR: .env file is missing\n";
     exit;
 }
 
-$dotenv = [];
-$lines = file($dotenv_path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-foreach ($lines as $line) {
-    if (strpos(trim($line), '#') === 0 || !strpos($line, '=')) continue;
-    list($key, $value) = explode('=', $line, 2);
-    $dotenv[trim($key)] = trim($value);
+$dotenv = parse_ini_file($dotenv_path);
+
+if (!$dotenv) {
+    echo "ERROR: Could not parse .env file\n";
+    exit;
 }
 
-echo '<pre>';
+echo "<pre>";
 print_r($dotenv);
-echo '</pre>';
-exit;
+echo "</pre>";
 
 if (!isset($dotenv['RECAPTCHA_SECRET_KEY'])) {
     echo "ERROR: RECAPTCHA_SECRET_KEY missing in .env file\n";
