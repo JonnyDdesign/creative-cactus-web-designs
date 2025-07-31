@@ -104,7 +104,7 @@ error_reporting(E_ALL);
 echo "Starting test...\n";
 
 // Check if .env exists
-$dotenv_path = __DIR__ . '/../.env';
+$dotenv_path = __DIR__ . '/./.env';
 
 echo realpath(dirname($dotenv_path)) . "\n";
 
