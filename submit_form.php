@@ -16,7 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $dotenv = parse_ini_file($dotenv_path);
 
-    if (!isset($dotenv['RECAPTCHA_SECRET_KEY'])) {
+    header('Content-Type: application/json');
+    var_dump($dotenv);
+
+    if (!$dotenv || !isset($dotenv['RECAPTCHA_SECRET_KEY'])) {
         echo json_encode(['status' => 'error', 'message' => 'Server configuration error: reCAPTCHA key missing.']);
         exit;
     }
