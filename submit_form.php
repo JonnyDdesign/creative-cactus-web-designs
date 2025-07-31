@@ -97,6 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 */
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -110,11 +111,30 @@ if (!file_exists($dotenv_path)) {
     exit;
 }
 
-$dotenv = parse_ini_file(__DIR__ . '/.env');
+$dotenv = [];
+$lines = file($dotenv_path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
-if (!$dotenv) {
-    echo "ERROR: Could not parse .env file\n";
-    exit;
+foreach ($lines as $line) {
+    $line = trim($line);
+    if ($line === '' || strpos($line, '#') === 0) {
+        // Skip empty lines and comments
+        continue;
+    }
+    if (strpos($line, '=') === false) {
+        // Skip malformed lines
+        continue;
+    }
+    list($key, $value) = explode('=', $line, 2);
+    $key = trim($key);
+    $value = trim($value);
+
+    // Remove surrounding quotes (single or double) if present
+    if ((substr($value, 0, 1) === '"' && substr($value, -1) === '"') ||
+        (substr($value, 0, 1) === "'" && substr($value, -1) === "'")) {
+        $value = substr($value, 1, -1);
+    }
+
+    $dotenv[$key] = $value;
 }
 
 echo "<pre>";
@@ -127,5 +147,4 @@ if (!isset($dotenv['RECAPTCHA_SECRET_KEY'])) {
 }
 
 echo "reCAPTCHA key loaded successfully: " . substr($dotenv['RECAPTCHA_SECRET_KEY'], 0, 5) . "...\n";
-
 ?>
