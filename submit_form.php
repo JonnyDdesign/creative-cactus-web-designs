@@ -104,7 +104,7 @@ error_reporting(E_ALL);
 echo "Starting test...\n";
 
 // Check if .env exists
-$dotenv_path = __DIR__ . '/.env';
+$dotenv_path = __DIR__ . './.env';
 if (!file_exists($dotenv_path)) {
     echo "ERROR: .env file is missing\n";
     exit;
