@@ -8,11 +8,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Load secret from .env file
-    $dotenv = parse_ini_file(__DIR__ . '/.env');
-    if (!$dotenv || !isset($dotenv['RECAPTCHA_SECRET_KEY'])) {
-        echo json_encode(['status' => 'error', 'message' => 'Server configuration error.']);
+    $dotenv_path = __DIR__ . '/.env';
+    if (!file_exists($dotenv_path)) {
+        echo json_encode(['status' => 'error', 'message' => 'Server configuration error: .env file missing']);
         exit;
     }
+
+    $dotenv = parse_ini_file($dotenv_path);
+
+    if (!isset($dotenv['RECAPTCHA_SECRET_KEY'])) {
+        echo json_encode(['status' => 'error', 'message' => 'Server configuration error: reCAPTCHA key missing.']);
+        exit;
+    }
+
     $recaptcha_secret = $dotenv['RECAPTCHA_SECRET_KEY'];
     $recaptcha_response = $_POST['g-recaptcha-response'] ?? '';
 
