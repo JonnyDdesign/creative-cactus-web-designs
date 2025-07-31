@@ -118,6 +118,11 @@ foreach ($lines as $line) {
     $dotenv[trim($key)] = trim($value);
 }
 
+echo '<pre>';
+print_r($dotenv);
+echo '</pre>';
+exit;
+
 if (!isset($dotenv['RECAPTCHA_SECRET_KEY'])) {
     echo "ERROR: RECAPTCHA_SECRET_KEY missing in .env file\n";
     exit;
