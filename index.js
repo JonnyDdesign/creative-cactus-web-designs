@@ -17,12 +17,18 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Show success or failure message below the form
                     responseMessage.innerText = response.message;
                     responseMessage.style.color = (response.status === 'success') ? 'white' : 'red';
+                    responseMessage.style.display = 'block';
+
+                    // Reset for if successful
+                    if (response.status === 'success') {
+                        form.reset();
+                    }
                 } else {
                     // Show generic error message in case of network failure
                     responseMessage.innerText = 'Sorry, something went wrong.Please try again later.';
                     responseMessage.style.color = 'red';
+                    responseMessage.style.display = 'block';
                 }
-                responseMessage.style.display = 'block';
             };
             
             xhr.send(formData); // Send the FormData object
