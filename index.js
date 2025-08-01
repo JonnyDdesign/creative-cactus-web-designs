@@ -14,10 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (xhr.status === 200) {
                     var response = JSON.parse(xhr.responseText);
 
-                    // 🔍 Log the parsed response object
-                    console.log('Response status:', response.status);
-                    console.log('Full response:', response);
-
                     // Show success or failure message below the form
                     responseMessage.innerText = response.message;
                     responseMessage.style.color = (response.status === 'success') ? 'white' : 'red';
@@ -25,7 +21,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     // Reset for if successful
                     if (response.status === 'success') {
-                        form.reset();
+                        setTimeout(() => {
+                            form.reset();
+                        }, 100);
                     }
                 } else {
                     // Show generic error message in case of network failure
