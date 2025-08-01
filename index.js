@@ -18,13 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     responseMessage.innerText = response.message;
                     responseMessage.style.color = (response.status === 'success') ? 'white' : 'red';
                     responseMessage.style.display = 'block';
-
-                    // Reset for if successful
-                    if (response.status === 'success') {
-                        setTimeout(() => {
-                            form.reset();
-                        }, 100);
-                    }
                 } else {
                     // Show generic error message in case of network failure
                     responseMessage.innerText = 'Sorry, something went wrong.Please try again later.';
