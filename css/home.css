@@ -22,10 +22,6 @@
     margin-right: 200px;
 }
 
-.hero-text a {
-    
-}
-
 .italic {
     font-family: 'Radley', serif;
     font-style: italic;
@@ -49,17 +45,19 @@
     font-size: 1.8rem;
     font-weight: bold;
     color: #000000;
-    background: linear-gradient(90deg, #8FD5A6 0%, #FFFFFF 100%);
+    background: linear-gradient(90deg, #8FD5A6, #FFFFFF, #0D5D56);
+    background-size: 200% 100%;
     border-radius: 5px;
     text-decoration: none;
     overflow: hidden;
     cursor: pointer;
-    transition: background 0.8s ease-in-out, transform 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .cta-button:hover {
-    background: linear-gradient(90deg, #FFFFFF 0%, #8FD5A6 100%);
+    background-position: 100% 0;
     transform: scale(1.05);
+    transition: background-position 1.2s ease-in-out, transform 0.3s ease;
 }
 
 .hero-image {
