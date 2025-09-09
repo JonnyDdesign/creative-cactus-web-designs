@@ -101,7 +101,7 @@ nav {
     font-family: 'Sedan', serif;
     color: #FFFFFF;
     text-decoration: none;
-    font-size: 1.7rem;
+    font-size: 2rem;
     padding-bottom: 5px;
     position: relative;
 }
@@ -216,7 +216,7 @@ nav {
 /* Responsive styles */
 @media (max-width: 1750px) {
     .header-container {
-        max-width: 1500px;
+        max-width: 1600px;
     }
 
     .footer-1 p {
