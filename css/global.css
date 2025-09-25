@@ -4,6 +4,18 @@
     box-sizing: border-box;
 }
 
+/* Root variables */
+:root {
+    --color-primary: #3a049e;
+    --color-primary-light: #8668c4;
+    --color-primary-dark: #22025d;
+    --color-dark-blue: #3800ad;
+    --color-light-pink: #e421a7;
+    --color-dark-pink: #d800d2;
+    --color-orange: #f6955d;
+    --color-orange-red: #ed5769;
+}
+
 body {
     font-family:'Times New Roman', Times, serif;
     font-size: 16px;
