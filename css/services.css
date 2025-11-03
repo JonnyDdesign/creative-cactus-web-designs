@@ -8,7 +8,9 @@
     margin: 0 auto;
 }
 
-.pricing-container h2 {
+.pricing-container h1 {
+    font-family: 'Radley', Georgia, Times, serif;
+    font-size: 3.3rem;
     padding-bottom: 0;
     margin-bottom: 1.5rem;
 }
@@ -55,18 +57,41 @@
 .pricing-card ul {
     list-style: none;
     padding: 0;
-    margin-bottom: 0.5rem;
+    margin: 0 0 0.5rem 0;
 }
 
 .pricing-card ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 1.1rem;
-    margin: 0.5rem 0;
+    margin: 0.8rem 0;
     color: #000000;
+    position: relative;
+    padding-right: 25px;
+}
+
+.pricing-card ul li::after {
+    content: "✓";
+    background-color: #0C8346;
+    color: #FFFFFF;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .btn {
     display: inline-block;
     padding: 0.8rem 1.5rem;
+    margin: 1rem 0 0.5rem 0;
     background: #0D5D56;
     color: #FFFFFF;
     text-decoration: none;
@@ -111,19 +136,19 @@
     width: 50%;
 }
 
+.services-text h2 {
+    font-family: 'Patua One', Times, serif;
+    font-size: 3rem;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
 .services-text p {
     font-size: 1.6rem;
 }
 
 .services-text ul {
     font-size: 1.6rem;
-}
-
-h2 {
-    font-family: 'Radley', Georgia, Times, serif;
-    font-size: 3.5rem;
-    text-align: center;
-    padding-bottom: 20px;
 }
 
 p {
