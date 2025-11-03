@@ -239,7 +239,7 @@ nav {
 
 @media (max-width: 1550px) {
     .header-container {
-        max-width: 1300px;
+        max-width: 1400px;
     }
 
     .logo img {
@@ -338,6 +338,10 @@ nav {
         margin-left: 50px;
     }
 
+    .nav-links li {
+        padding: 0 10px;
+    }
+
     .nav-links a {
         font-size: 1.3rem;
     }
@@ -367,6 +371,10 @@ nav {
     .logo img {
         width: 230px;
         height: 130px;
+    }
+
+    .nav-links li {
+        padding: 0 8px;
     }
 
     .footer-1, .footer-2, .footer-3 {
