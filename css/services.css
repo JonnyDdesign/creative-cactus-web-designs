@@ -8,9 +8,14 @@
     margin: 0 auto;
 }
 
+.pricing-container h2 {
+    padding-bottom: 0;
+    margin-bottom: 1.5rem;
+}
+
 .pricing-container p {
     font-size: 1.6rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: #FFFFFF;
 }
 
@@ -27,12 +32,6 @@
     padding: 1rem;
     width: 350px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.pricing-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 .pricing-card h3 {
@@ -67,7 +66,7 @@
 
 .btn {
     display: inline-block;
-    padding: 1rem 1.5rem;
+    padding: 0.8rem 1.5rem;
     background: #0D5D56;
     color: #FFFFFF;
     text-decoration: none;
