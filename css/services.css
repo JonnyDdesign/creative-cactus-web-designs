@@ -24,7 +24,7 @@
 .pricing-cards {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 5rem;
     flex-wrap: wrap;
 }
 
@@ -40,6 +40,7 @@
     font-size: 2rem;
     margin-bottom: 0.5rem;
     color: #000000;
+    text-decoration: underline;
 }
 
 .pricing-card p {
@@ -203,6 +204,10 @@ p {
 }
 
 @media (max-width: 790px) {
+    .pricing-cards {
+        gap: 3rem;
+    }
+
     .services {
         flex-direction: column;
         align-items: center;
@@ -259,5 +264,41 @@ p {
 
     .services-text ul {
         font-size: 1rem;
+    }
+}
+
+@media (max-width: 435px) {
+    .pricing {
+        padding: 40px 20px;
+    }
+
+    .pricing-container h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .pricing-container p {
+        font-size: 1.2rem;
+    }
+
+    .pricing-cards {
+        gap: 2rem;
+    }
+
+    .pricing-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .pricing-card ul li {
+        font-size: 1rem;
+        margin: 0.6rem 0;
+    }
+
+    .btn {
+        padding: 0.5rem 1.2rem;
+    }
+
+    .services-text h2 {
+        font-size: 1.8rem;
     }
 }
